@@ -18,7 +18,8 @@ const Index = () => {
     {
       title: "Хобби",
       subtitle: "Танцы",
-      content: "Моё хобби — это танцы. Это моя страсть и способ самовыражения."
+      content: "Моё хобби — это танцы. Это моя страсть и способ самовыражения.",
+      image: "https://cdn.poehali.dev/projects/4a36a762-bcd3-47bd-bb72-9242e5a217d9/files/cf501058-3ca9-43c6-aadc-087611ef0938.jpg"
     },
     {
       title: "Учёба",
