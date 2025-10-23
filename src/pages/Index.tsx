@@ -13,7 +13,7 @@ const Index = () => {
       title: "Лера",
       subtitle: "17 лет",
       content: "Меня зовут Лера, мне 17 лет",
-      image: "https://cdn.poehali.dev/files/84920589-9e28-40be-92b6-8e19bbc3e386.jpeg"
+      image: "https://cdn.poehali.dev/files/77774fcd-8f41-412d-81c6-30580bc19cfb.jpeg"
     },
     {
       title: "Хобби",
