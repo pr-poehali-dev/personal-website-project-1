@@ -31,7 +31,7 @@ const Index = () => {
       title: "ЕГЭ",
       subtitle: "Экзамены 2025",
       content: "Я сдаю ЕГЭ по профильной математике, английскому, обществознанию и русскому языку",
-      image: "https://cdn.poehali.dev/projects/4a36a762-bcd3-47bd-bb72-9242e5a217d9/files/41a52748-bd6a-451c-8060-331a26cb8352.jpg"
+      image: "https://cdn.poehali.dev/files/17eb0c40-6ddb-4613-a0df-f92bffd4415c.jpeg"
     },
     {
       title: "Мои друзья",
