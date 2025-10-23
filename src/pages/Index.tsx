@@ -23,7 +23,8 @@ const Index = () => {
     {
       title: "Учёба",
       subtitle: "11Б класс",
-      content: "Я учусь в 51 школе в 11Б классе"
+      content: "Я учусь в 51 школе в 11Б классе",
+      image: "https://cdn.poehali.dev/files/b37c6c96-c7f4-4275-b493-b1f75b52c11f.jpeg"
     },
     {
       title: "ЕГЭ",
