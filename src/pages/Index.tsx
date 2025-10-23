@@ -32,6 +32,16 @@ const Index = () => {
       subtitle: "Экзамены 2025",
       content: "Я сдаю ЕГЭ по профильной математике, английскому, обществознанию и русскому языку",
       image: "https://cdn.poehali.dev/projects/4a36a762-bcd3-47bd-bb72-9242e5a217d9/files/41a52748-bd6a-451c-8060-331a26cb8352.jpg"
+    },
+    {
+      title: "Мои друзья",
+      subtitle: "Я их люблю",
+      content: "Мои друзья — это самые важные люди в моей жизни",
+      images: [
+        "https://cdn.poehali.dev/files/e2bc40fd-2c40-4808-ae51-c76bea553912.jpeg",
+        "https://cdn.poehali.dev/files/3e07446a-0de3-4dd1-b8f7-d70e9bd19dea.jpeg",
+        "https://cdn.poehali.dev/files/09d7c20a-47f6-4794-b6ec-8a61828eb49d.jpg"
+      ]
     }
   ];
 
@@ -55,6 +65,19 @@ const Index = () => {
                   alt={slides[currentSlide].title}
                   className="w-64 h-64 md:w-80 md:h-80 object-cover border-4 border-black"
                 />
+              </div>
+            )}
+
+            {slides[currentSlide].images && (
+              <div className="mb-12 grid grid-cols-1 md:grid-cols-3 gap-4">
+                {slides[currentSlide].images.map((img, idx) => (
+                  <img 
+                    key={idx}
+                    src={img} 
+                    alt={`${slides[currentSlide].title} ${idx + 1}`}
+                    className="w-full h-64 md:h-80 object-cover border-4 border-black"
+                  />
+                ))}
               </div>
             )}
 
