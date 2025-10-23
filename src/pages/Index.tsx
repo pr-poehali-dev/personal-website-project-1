@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -5,72 +6,84 @@ import { Textarea } from "@/components/ui/textarea";
 import Icon from "@/components/ui/icon";
 
 const Index = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const slides = [
+    {
+      title: "Лера",
+      subtitle: "17 лет",
+      content: "Меня зовут Лера, мне 17 лет"
+    },
+    {
+      title: "Хобби",
+      subtitle: "Танцы",
+      content: "Моё хобби — это танцы. Это моя страсть и способ самовыражения."
+    },
+    {
+      title: "Учёба",
+      subtitle: "11Б класс",
+      content: "Я учусь в 51 школе в 11Б классе"
+    }
+  ];
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
   return (
     <div className="min-h-screen bg-white">
-      <section className="container mx-auto px-6 py-24 md:py-32">
-        <div className="max-w-4xl">
-          <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-6">
-            PORTFOLIO
-          </h1>
-          <div className="w-16 h-1 bg-black mb-8"></div>
-          <p className="text-xl md:text-2xl font-light text-gray-600 max-w-2xl">
-            Школьник
-          </p>
-        </div>
-      </section>
-
-      <section className="container mx-auto px-6 py-16 md:py-24">
-        <div className="grid md:grid-cols-2 gap-16 max-w-6xl">
-          <div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Обо мне</h2>
-            <div className="space-y-6 text-lg text-gray-600 font-light leading-relaxed">
-              <p>
-                Привет! Я школьник, который увлекается современными технологиями
-                и постоянно учится чему-то новому.
-              </p>
-              <p>
-                Мне интересно познавать мир через проекты, эксперименты и
-                общение с единомышленниками.
+      <section className="container mx-auto px-6 py-24 md:py-32 min-h-screen flex items-center justify-center">
+        <div className="max-w-4xl w-full">
+          <div className="relative">
+            <div className="mb-12 text-center">
+              <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-6">
+                {slides[currentSlide].title}
+              </h1>
+              <div className="w-16 h-1 bg-black mb-8 mx-auto"></div>
+              <p className="text-xl md:text-2xl font-light text-gray-600 max-w-2xl mx-auto">
+                {slides[currentSlide].subtitle}
               </p>
             </div>
-          </div>
 
-          <div className="space-y-8">
-            <Card className="p-8 border-2 border-black hover:shadow-xl transition-shadow">
-              <div className="flex items-start gap-4">
-                <Icon name="Briefcase" size={24} className="mt-1" />
-                <div>
-                  <h3 className="font-semibold text-lg mb-2">Интересы</h3>
-                  <p className="text-gray-600 font-light">
-                    Изучение новых технологий, чтение, спорт
-                  </p>
-                </div>
-              </div>
-            </Card>
+            <div className="text-center mb-16">
+              <p className="text-lg md:text-xl font-light text-gray-700 leading-relaxed max-w-2xl mx-auto">
+                {slides[currentSlide].content}
+              </p>
+            </div>
 
-            <Card className="p-8 border-2 border-black hover:shadow-xl transition-shadow">
-              <div className="flex items-start gap-4">
-                <Icon name="User" size={24} className="mt-1" />
-                <div>
-                  <h3 className="font-semibold text-lg mb-2">Навыки</h3>
-                  <p className="text-gray-600 font-light">
-                    Быстрая обучаемость, креативное мышление, работа в команде
-                  </p>
-                </div>
-              </div>
-            </Card>
+            <div className="flex justify-between items-center">
+              <Button
+                onClick={prevSlide}
+                variant="outline"
+                className="border-2 border-black hover:bg-black hover:text-white transition-colors"
+              >
+                <Icon name="ChevronLeft" size={24} />
+              </Button>
 
-            <Card className="p-8 border-2 border-black hover:shadow-xl transition-shadow">
-              <div className="flex items-start gap-4">
-                <Icon name="ArrowRight" size={24} className="mt-1" />
-                <div>
-                  <h3 className="font-semibold text-lg mb-2">Цели</h3>
-                  <p className="text-gray-600 font-light">
-                    Развиваться в выбранных направлениях и создавать полезные проекты
-                  </p>
-                </div>
+              <div className="flex gap-3">
+                {slides.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`h-2 rounded-full transition-all ${
+                      index === currentSlide ? 'w-8 bg-black' : 'w-2 bg-gray-300'
+                    }`}
+                  />
+                ))}
               </div>
-            </Card>
+
+              <Button
+                onClick={nextSlide}
+                variant="outline"
+                className="border-2 border-black hover:bg-black hover:text-white transition-colors"
+              >
+                <Icon name="ChevronRight" size={24} />
+              </Button>
+            </div>
           </div>
         </div>
       </section>
