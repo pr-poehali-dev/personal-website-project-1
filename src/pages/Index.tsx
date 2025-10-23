@@ -12,7 +12,8 @@ const Index = () => {
     {
       title: "Лера",
       subtitle: "17 лет",
-      content: "Меня зовут Лера, мне 17 лет"
+      content: "Меня зовут Лера, мне 17 лет",
+      image: "https://cdn.poehali.dev/files/84920589-9e28-40be-92b6-8e19bbc3e386.jpeg"
     },
     {
       title: "Хобби",
@@ -39,6 +40,16 @@ const Index = () => {
       <section className="container mx-auto px-6 py-24 md:py-32 min-h-screen flex items-center justify-center">
         <div className="max-w-4xl w-full">
           <div className="relative">
+            {slides[currentSlide].image && (
+              <div className="mb-12 flex justify-center">
+                <img 
+                  src={slides[currentSlide].image} 
+                  alt={slides[currentSlide].title}
+                  className="w-64 h-64 md:w-80 md:h-80 object-cover border-4 border-black"
+                />
+              </div>
+            )}
+
             <div className="mb-12 text-center">
               <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-6">
                 {slides[currentSlide].title}
